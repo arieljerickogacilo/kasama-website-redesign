@@ -229,7 +229,7 @@ function Partners() {
           fontWeight="400"
           lineHeight="130%"
           textAlign="center"
-        >Interested in<br />joining our team?</Text>
+        >Interested in<br />becoming a partner?</Text>
         <Box
           borderRadius="4px"
           border="1px black solid"
