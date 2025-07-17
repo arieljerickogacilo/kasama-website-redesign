@@ -3,6 +3,7 @@ import { Stack, Text } from "@chakra-ui/react";
 function Work(){
   return(
     <Stack
+      overflowX="hidden"
       flex="1"
       position="relative"
       justifyContent="center"

@@ -29,7 +29,6 @@ createRoot(document.getElementById('root')).render(
         minH="100dvh"
         as={Stack}
         gap={0}
-        overflowX="hidden"
       >
           <BrowserRouter>
             <Header />

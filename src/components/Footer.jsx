@@ -3,7 +3,7 @@ import KASAMA_JEEP_LOGO from "../assets/kasama-logo.png"
 import LetsWorkTogetherButton from "../ui-elements/lets-work-together-button";
 import { useNavigate } from "react-router-dom";
 
-const HeaderLink = ({children, link}) => {
+const HeaderLink = ({navigate, children, link}) => {
   return(
     <Box 
       cursor="pointer"
@@ -11,7 +11,10 @@ const HeaderLink = ({children, link}) => {
       _hover={{
         textDecoration: "underline",
       }}
-      onClick={() => window.location.href = link}
+      onClick={() => {
+        navigate(link);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }}
     >
       {children}
     </Box>
@@ -19,6 +22,8 @@ const HeaderLink = ({children, link}) => {
 }
 
 function Footer(props) {
+  const navigate = useNavigate();
+
   return (
     <Stack
       alignSelf="flex-end"
@@ -58,12 +63,12 @@ function Footer(props) {
             w={{base: "100%", lg: "100%"}}
             fontSize="20px"
           >
-            <HeaderLink link="/work">Work</HeaderLink>
-            <HeaderLink link="/about">About</HeaderLink>
-            <HeaderLink link="/partners">Partners</HeaderLink>
-            <HeaderLink link="/news">News</HeaderLink>
-            <HeaderLink link="/careers">Careers</HeaderLink>
-            <HeaderLink link="/contact">Contact</HeaderLink>
+            <HeaderLink navigate={navigate} link="/work">Work</HeaderLink>
+            <HeaderLink navigate={navigate} link="/about">About</HeaderLink>
+            <HeaderLink navigate={navigate} link="/partners">Partners</HeaderLink>
+            <HeaderLink navigate={navigate} link="/news">News</HeaderLink>
+            <HeaderLink navigate={navigate} link="/careers">Careers</HeaderLink>
+            <HeaderLink navigate={navigate} link="/contact">Contact</HeaderLink>
           </Stack>
         </Flex>
       </SimpleGrid>

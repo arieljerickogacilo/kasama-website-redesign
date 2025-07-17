@@ -5,6 +5,7 @@ import AI_JEEP from "../assets/AI_JEEP.png"
 function Careers(){
   return(
     <Stack
+      overflowX="hidden"
       flex="1"
       position="relative"
       justifyContent="center"

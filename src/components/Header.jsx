@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 
 const NavLink = ({ navigate, setDrawerIsOpen, link, children, ...props }) => {
   const handleNavigate = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setDrawerIsOpen(false);
     navigate(link);
   };
@@ -37,11 +38,17 @@ const NavLink = ({ navigate, setDrawerIsOpen, link, children, ...props }) => {
 
 function Header() {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
-  
-  
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
   useEffect(() => {
-    console.log(drawerIsOpen)
-  }, [drawerIsOpen])
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -94,13 +101,19 @@ function Header() {
         </DrawerContent>
       </Drawer>
 
-      <Flex
+       <Flex
+        position="sticky"
+        top="0"
+        zIndex="sticky"
         direction="row"
         padding={{ base: "0 1rem", lg: "0" }}
         justifyContent={{ base: "space-between", lg: "center" }}
         alignItems="center"
         gap={12}
-        backgroundColor="#F8D9D8"
+        backgroundColor={isScrolled ? "rgba(248, 217, 216, 0.4)" : "#F8D9D8"}
+        backdropFilter={isScrolled ? "blur(10px)" : "none"}
+        transition="all 0.3s ease"
+        boxShadow={isScrolled ? "sm" : "none"}
       >
         <Image
           width={{ base: "75px", lg: "120px" }}
@@ -128,12 +141,12 @@ function Header() {
           borderRadius={4}
           backgroundColor="#FDEADA"
         >
-          <NavLink navigate={navigate} link="/work">Work</NavLink>
-          <NavLink navigate={navigate} link="/about">About</NavLink>
-          <NavLink navigate={navigate} link="/partners">Partners</NavLink>
-          <NavLink navigate={navigate} link="/news">News</NavLink>
-          <NavLink navigate={navigate} link="/careers">Careers</NavLink>
-          <NavLink navigate={navigate} link="/contact">Contact</NavLink>
+          <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/work">Work</NavLink>
+          <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/about">About</NavLink>
+          <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/partners">Partners</NavLink>
+          <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/news">News</NavLink>
+          <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/careers">Careers</NavLink>
+          <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/contact">Contact</NavLink>
         </Flex>
       </Flex>
     </>
