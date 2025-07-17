@@ -1,6 +1,6 @@
 import { Image, Stack, Text, Flex, Box, Textarea, SimpleGrid, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import LEAVE from "../assets/leaf.png"
-import CITY from "../assets/city.PNG"
+import CITY from "../assets/city.png"
 
 function Contact() {
   return (
