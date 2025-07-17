@@ -10,30 +10,45 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
+import { useEffect, useState } from "react";
 
-const NavLink = ({ link, children, ...props }) => (
-  <Box
-    {...props}
-    color="#213047"
-    fontSize={{ base: "32px", lg: "18px" }}
-    fontFamily={{ base: "'Libre Baskerville', sans-serif", lg: "'Space Grotesk', sans-serif" }}
-    cursor="pointer"
-    _hover={{
-      textDecoration: "underline",
-    }}
-    onClick={() => window.location.href = link}
-  >
-    {children}
-  </Box>
-);
+const NavLink = ({ navigate, setDrawerIsOpen, link, children, ...props }) => {
+  const handleNavigate = () => {
+    setDrawerIsOpen(false);
+    navigate(link);
+  };
+
+  return (
+    <Box
+      {...props}
+      color="#213047"
+      fontSize={{ base: "32px", lg: "18px" }}
+      fontFamily={{ base: "'Libre Baskerville', sans-serif", lg: "'Space Grotesk', sans-serif" }}
+      cursor="pointer"
+      _hover={{
+        textDecoration: "underline",
+      }}
+      onClick={handleNavigate}
+    >
+      {children}
+    </Box>
+  )
+}
 
 function Header() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+  
+  
+  useEffect(() => {
+    console.log(drawerIsOpen)
+  }, [drawerIsOpen])
+
+  const navigate = useNavigate();
 
   return (
     <>
       <Drawer
-        isOpen={isOpen}
+        isOpen={drawerIsOpen}
         placement='right'
         size="100%"
       >
@@ -49,7 +64,7 @@ function Header() {
                 src={KASAMA_JEEP_LOGO}
               />
               <Box
-                onClick={onClose}
+                onClick={() => setDrawerIsOpen(false)}
                 width="47px"
                 height="47px"
                 borderRadius="full"
@@ -68,12 +83,12 @@ function Header() {
               direction="column"
               gap={6}
             >
-              <NavLink link="/work">Work</NavLink>
-              <NavLink link="/about">About</NavLink>
-              <NavLink link="/partners">Partners</NavLink>
-              <NavLink link="/news">News</NavLink>
-              <NavLink link="/careers">Careers</NavLink>
-              <NavLink link="/contact">Contact</NavLink>
+              <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/work">Work</NavLink>
+              <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/about">About</NavLink>
+              <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/partners">Partners</NavLink>
+              <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/news">News</NavLink>
+              <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/careers">Careers</NavLink>
+              <NavLink setDrawerIsOpen={setDrawerIsOpen} navigate={navigate} link="/contact">Contact</NavLink>
             </Flex>
           </DrawerBody>
         </DrawerContent>
@@ -93,7 +108,7 @@ function Header() {
           src={KASAMA_JEEP_LOGO}
         />
         <Box
-          onClick={onOpen}
+          onClick={() => setDrawerIsOpen(true)}
           width="47px"
           height="47px"
           borderRadius="full"
@@ -113,12 +128,12 @@ function Header() {
           borderRadius={4}
           backgroundColor="#FDEADA"
         >
-          <NavLink link="/work">Work</NavLink>
-          <NavLink link="/about">About</NavLink>
-          <NavLink link="/partners">Partners</NavLink>
-          <NavLink link="/news">News</NavLink>
-          <NavLink link="/careers">Careers</NavLink>
-          <NavLink link="/contact">Contact</NavLink>
+          <NavLink navigate={navigate} link="/work">Work</NavLink>
+          <NavLink navigate={navigate} link="/about">About</NavLink>
+          <NavLink navigate={navigate} link="/partners">Partners</NavLink>
+          <NavLink navigate={navigate} link="/news">News</NavLink>
+          <NavLink navigate={navigate} link="/careers">Careers</NavLink>
+          <NavLink navigate={navigate} link="/contact">Contact</NavLink>
         </Flex>
       </Flex>
     </>

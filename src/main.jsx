@@ -34,7 +34,7 @@ createRoot(document.getElementById('root')).render(
           <BrowserRouter>
             <Header />
             <Routes>
-              <Route path='/' element={<App />}></Route>
+              <Route path='/' element={<Careers />}></Route>
               <Route path='/home' element={<Homepage />}></Route>
               <Route path='/careers' element={<Careers />}></Route>
               <Route path='/work' element={<Work />}></Route>
@@ -43,8 +43,8 @@ createRoot(document.getElementById('root')).render(
               <Route path='/news' element={<News />}></Route>
               <Route path='/contact' element={<Contact />}></Route>
             </Routes>
+            <Footer mt="auto" />
           </BrowserRouter>
-          <Footer mt="auto" />
       </Container>
     </ChakraProvider>
   </StrictMode>,

@@ -1,10 +1,11 @@
-import { Image, Stack, Text, Flex, Link, Accordion, AccordionItem, AccordionButton, Box, AccordionIcon, AccordionPanel } from "@chakra-ui/react";
+import { Image, Stack, Text, Flex, Accordion, AccordionItem, AccordionButton, Box, AccordionIcon, AccordionPanel } from "@chakra-ui/react";
 import LEAVE from "../assets/leaf.png"
 import AI_JEEP from "../assets/AI_JEEP.png"
 
 function Careers(){
   return(
     <Stack
+      flex="1"
       position="relative"
       justifyContent="center"
       alignItems="center"
@@ -54,7 +55,7 @@ function Careers(){
           />
           <Text
             fontSize="20px"
-            mt={{base: "8rem", lg: "15rem"}}
+            mt={{base: "8rem", lg: "10rem"}}
             mb={{base: "2rem", lg: 8}}
           >CULTURE</Text>
           <Text
@@ -180,14 +181,13 @@ function Careers(){
           lineHeight="130%"
           textAlign="center"
         >Interested in<br />joining our team?</Text>
-        <Link
+        <Box
           borderRadius="4px"
           border="1px black solid"
           padding="0.75rem 2.5rem"
           textAlign="center"
           width={{base: "100%", lg: "20%"}}
-          href=""
-        >Apply today</Link>
+        >Apply today</Box>
       </Flex>
     </Stack>
   )
