@@ -136,7 +136,7 @@ function Partners() {
       >
         <Divider borderColor="#213047" />
         <Text fontSize={{base: "24px", lg: "30px"}}>Build partners</Text>
-        <SimpleGrid columns={{base: 2, lg: 6}} gap={4} mt="2rem" mb="4rem">
+        <SimpleGrid columns={{base: 2, lg: 6}} gap={4} mt="2rem" mb={{base: 0, lg: "4rem"}} >
           <Stack spacing="1rem" mb="4rem">
             <Image width="236px" height="236px" objectFit="contain" p={8} backgroundColor="#FAE1D9" borderRadius="4px" src={SALSIFY_LOGO} />
             <Text fontSize="24px">Salsify</Text>
@@ -212,6 +212,32 @@ function Partners() {
           
         </SimpleGrid>
       </Stack>
+      <Flex
+        mt={{base: "0", lg: "4rem"}}
+        mb={{base: "4rem", lg: "8rem"}}
+        position="relative"
+        direction="column"
+        width={{base: "100%", lg: "1006px"}}
+        alignItems="center"
+        gap={12}
+        p={{base: 4, lg: 0}}
+      >
+       <Text
+          color="#213047"
+          fontFamily="'Libre Baskerville', sans-serif"
+          fontSize={{base: "34px", lg: "70px"}}
+          fontWeight="400"
+          lineHeight="130%"
+          textAlign="center"
+        >Interested in<br />joining our team?</Text>
+        <Box
+          borderRadius="4px"
+          border="1px black solid"
+          padding="0.75rem 2.5rem"
+          textAlign="center"
+          width={{base: "100%", lg: "20%"}}
+        >Apply today</Box>
+      </Flex>
     </Stack>
   )
 }
