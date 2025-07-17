@@ -1,4 +1,4 @@
-import { Heading, Image, Stack, Text, Flex, Link, Accordion, AccordionItem, AccordionButton, Box, AccordionIcon, AccordionPanel } from "@chakra-ui/react";
+import { Image, Stack, Text, Flex, Link, Accordion, AccordionItem, AccordionButton, Box, AccordionIcon, AccordionPanel } from "@chakra-ui/react";
 import LEAVE from "../assets/leaf.png"
 import AI_JEEP from "../assets/AI_JEEP.png"
 

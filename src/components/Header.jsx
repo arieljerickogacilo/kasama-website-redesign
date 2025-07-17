@@ -1,24 +1,27 @@
-import { Button, Divider, Flex, Heading, HStack, Image, SimpleGrid, IconButton, Box, Text, useDisclosure } from "@chakra-ui/react";
+import { Flex, Heading, HStack, Image, SimpleGrid, IconButton, Box, Text, useDisclosure } from "@chakra-ui/react";
 import KASAMA_JEEP_LOGO from "../assets/kasama-logo.png"
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
 } from '@chakra-ui/react'
 
 import { useNavigate } from "react-router-dom";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 
-const NavLink = ({ children, ...props }) => (
+const NavLink = ({ link, children, ...props }) => (
   <Box
     {...props}
     color="#213047"
     fontSize={{ base: "32px", lg: "18px" }}
     fontFamily={{ base: "'Libre Baskerville', sans-serif", lg: "'Space Grotesk', sans-serif" }}
+    cursor="pointer"
+    _hover={{
+      textDecoration: "underline",
+    }}
+    onClick={() => window.location.href = link}
   >
     {children}
   </Box>
@@ -26,12 +29,6 @@ const NavLink = ({ children, ...props }) => (
 
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const navigate = useNavigate();
-
-  const handleNavigate = (route) => {
-    onClose();
-    navigate(route);
-  }
 
   return (
     <>
@@ -71,12 +68,12 @@ function Header() {
               direction="column"
               gap={6}
             >
-              <NavLink onClick={() => handleNavigate("/work")}>Work</NavLink>
-              <NavLink onClick={() => handleNavigate("/about")}>About</NavLink>
-              <NavLink onClick={() => handleNavigate("/partners")}>Partners</NavLink>
-              <NavLink onClick={() => handleNavigate("/news")}>News</NavLink>
-              <NavLink onClick={() => handleNavigate("/careers")}>Careers</NavLink>
-              <NavLink onClick={() => handleNavigate("/contact")}>Contact</NavLink>
+              <NavLink link="/work">Work</NavLink>
+              <NavLink link="/about">About</NavLink>
+              <NavLink link="/partners">Partners</NavLink>
+              <NavLink link="/news">News</NavLink>
+              <NavLink link="/careers">Careers</NavLink>
+              <NavLink link="/contact">Contact</NavLink>
             </Flex>
           </DrawerBody>
         </DrawerContent>
@@ -116,12 +113,12 @@ function Header() {
           borderRadius={4}
           backgroundColor="#FDEADA"
         >
-          <NavLink onClick={() => handleNavigate("/work")}>Work</NavLink>
-          <NavLink onClick={() => handleNavigate("/about")}>About</NavLink>
-          <NavLink onClick={() => handleNavigate("/partners")}>Partners</NavLink>
-          <NavLink onClick={() => handleNavigate("/news")}>News</NavLink>
-          <NavLink onClick={() => handleNavigate("/careers")}>Careers</NavLink>
-          <NavLink onClick={() => handleNavigate("/contact")}>Contact</NavLink>
+          <NavLink link="/work">Work</NavLink>
+          <NavLink link="/about">About</NavLink>
+          <NavLink link="/partners">Partners</NavLink>
+          <NavLink link="/news">News</NavLink>
+          <NavLink link="/careers">Careers</NavLink>
+          <NavLink link="/contact">Contact</NavLink>
         </Flex>
       </Flex>
     </>

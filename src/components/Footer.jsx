@@ -1,6 +1,22 @@
-import { Flex, HStack, Image, Link, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Image, Link, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import KASAMA_JEEP_LOGO from "../assets/kasama-logo.png"
 import LetsWorkTogetherButton from "../ui-elements/lets-work-together-button";
+import { useNavigate } from "react-router-dom";
+
+const HeaderLink = ({children, link}) => {
+  return(
+    <Box 
+      cursor="pointer"
+      w="100"
+      _hover={{
+        textDecoration: "underline",
+      }}
+      onClick={() => window.location.href = link}
+    >
+      {children}
+    </Box>
+  )
+}
 
 function Footer(props) {
   return (
@@ -28,7 +44,7 @@ function Footer(props) {
 
         <Flex
           direction={{base: "column", lg: "row"}}
-          gap={{base: 0, lg: "4rem"}}
+          gap={{base: 0, lg: "8rem"}}
           mt={{base: "4rem", lg: 0}}
           alignItems={{base: "center", lg: "flex-start"}}
           order={{ base: 1, lg: 0 }}
@@ -38,13 +54,16 @@ function Footer(props) {
             width="130px"
             height="auto"
           />
-          <Stack justifyContent="flex-start" fontSize="20px">
-            <Link>Work</Link>
-            <Link>About</Link>
-            <Link>Partners</Link>
-            <Link>News</Link>
-            <Link>Careers</Link>
-            <Link>Contact</Link>
+          <Stack 
+            w={{base: "100%", lg: "100%"}}
+            fontSize="20px"
+          >
+            <HeaderLink link="/work">Work</HeaderLink>
+            <HeaderLink link="/about">About</HeaderLink>
+            <HeaderLink link="/partners">Partners</HeaderLink>
+            <HeaderLink link="/news">News</HeaderLink>
+            <HeaderLink link="/careers">Careers</HeaderLink>
+            <HeaderLink link="/contact">Contact</HeaderLink>
           </Stack>
         </Flex>
       </SimpleGrid>
