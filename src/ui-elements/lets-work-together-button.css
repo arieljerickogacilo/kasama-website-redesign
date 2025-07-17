@@ -1,0 +1,17 @@
+.lets-work-together-button {
+  background-color: #fdebd2;
+  padding: 1rem 2rem;
+  font-size: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .lets-work-together-button {
+    width: 100%;
+  }
+}

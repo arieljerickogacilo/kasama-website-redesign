@@ -1,0 +1,32 @@
+/* Custom Scrollbar */
+/* html {
+  scrollbar-color: #888 transparent; /* Firefox */
+/* Webkit browsers (Chrome, Edge, Safari) */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #FDEBD2;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #3c3c3c;
+  border-radius: 10px;
+  border: 5px solid transparent;
+}
+
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
