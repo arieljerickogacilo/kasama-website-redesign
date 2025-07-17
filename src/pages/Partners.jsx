@@ -1,6 +1,5 @@
 import { Image, Stack, Text, Flex, Box, Textarea, SimpleGrid, FormControl, FormLabel, Input, Divider } from "@chakra-ui/react";
 import LEAVE from "../assets/leaf.png"
-import CITY from "../assets/city.PNG"
 import SALESFORCE_LOGO from "../assets/salesforce-logo.png"
 import SHOPIFY_LOGO from "../assets/shopify-logo.png"
 
